@@ -25,5 +25,15 @@ class window.App extends Backbone.Model
   # events:
   #   'playerbust': ->
   #     console.log "app hears playerbust"
-
+  redeal: ->
+    console.log "app heard redeal"
+    newhand = (@get 'deck').dealPlayer().models
+    (@get 'playerHand').reset(newhand)
+    # console.log ans
+    # set((@get 'deck').dealPlayer())
+    # params =
+    #   (@get 'deck'): new Deck(),
+    #   (@get 'playerHand'): deck.dealPlayer(),
+    #   (@get 'dealerHand'): deck.dealDealer()
+    # @set(params)
 
