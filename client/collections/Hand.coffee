@@ -7,6 +7,16 @@ class window.Hand extends Backbone.Collection
   hit: ->
     if @isDealer
       console.log "dealer hit"
+      score = @score()
+      # while score < 17
+      loop
+        break if score > 17
+        console.log score
+        score += @add(@deck.pop())
+        do @scores
+        score = @score()
+        console.log score
+      @trigger 'gameover'
     else
       @trigger 'hit'
       @add(@deck.pop()).last()
